@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h1><%= title %></h1>
+<ul>
+
+  <% cartoonsEpList.forEach(function(show) { %>
+    <li>
+      <a href="/Ep<%= show.EpName %>"><%= show.title %></a>
+    </li>
+  <% }) %>
+
+</ul>
+
+<%include partials/footer %>
