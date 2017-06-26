@@ -7,8 +7,12 @@ const path = require('path')
 const scraperList = require("./cartoonListScraper");
 const scraperEp = require("./specificShowScraper");
 const scraperVid = require("./findVideo");
+const scraperSpookVid = require("./spookVideo");
+
+
 const url = "https://www.watchcartoononline.io/";
 const url2 = "https://www.watchcartoononline.io/anime/";
+const url3 = "https://www.watchcartoononline.io/inc/animeuploads/embed.php?file=";
 
 
 var app = express();
@@ -105,21 +109,21 @@ app.get('/Ep/:episode', function(req, res) {
 
   var vidURL = url + req.params.episode;
 
+  var vidLinkAddr = ""
+  var message = req.params.episode;
+
   scraperVid.findVideoScrape(vidURL, (data) => {
-    //console.log("data recieved Vid");
 
-    var message = req.params.episode;
-
-    res.render('video', {
-      title : message,
-      cartoonVid: data.videoLink
-    });
-    //console.log("VideoLink: " + data.videoLink)
+    scraperSpookVid.spookVidScrape(data.videoLink, (dataSpook) => {
+      res.render('video', {
+        title : message,
+        cartoonVid: dataSpook
+      });
+    })
 
   })
 
 })
-
 
 app.listen(app.get('port'), function() {
   console.log("Server On");
