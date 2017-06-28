@@ -23,6 +23,18 @@ app.set('port', (process.env.PORT || 8000));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+function findAndReplace(string, target, replacement) {
+ var i = 0, length = string.length;
+ for (i; i < length; i++) {
+   string = string.replace(target, replacement);
+ }
+ return string;
+}
+
+function toTitleCase(str){
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 app.get('/', function(req, res) {
 
   res.render('index', {
@@ -94,9 +106,11 @@ app.get('/:show', function(req, res) {
     cartoonShowEpArr = data;
 
     var message = req.params.show + " Episodes";
+    var title = findAndReplace(message, '-', ' ');
+    title = toTitleCase(title);
 
     res.render('Episode', {
-      title : message,
+      title : title,
       cartoonsEpList: cartoonShowEpArr.cartoonShowlist
     });
 
@@ -111,12 +125,14 @@ app.get('/Ep/:episode', function(req, res) {
 
   var vidLinkAddr = ""
   var message = req.params.episode;
+  var title = findAndReplace(message, '-', ' ');
+  title = toTitleCase(title);
 
   scraperVid.findVideoScrape(vidURL, (data) => {
 
     scraperSpookVid.spookVidScrape(data.videoLink, (dataSpook) => {
       res.render('video', {
-        title : message,
+        title : title,
         cartoonVid: dataSpook
       });
     })

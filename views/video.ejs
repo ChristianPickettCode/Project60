@@ -1,5 +1,12 @@
 <% include partials/header %>
 
-<a href="<%= cartoonVid %>"><%= title %></a>
+<h2>Watch: <u><%= title %></u></h2>
+<button type="button" name="button"><a href="<%= cartoonVid %>">Watch Video</a></button>
+
+<h2>Click to Download Episode</h2>
+<ul>
+  <li>In Safari right click the button and Download Linked File</li>
+</ul>
+<button type="button" name="button"><a href="<%= cartoonVid %>" download>Download Video</a></button>
 
 <%include partials/footer %>
