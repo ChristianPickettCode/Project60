@@ -13,9 +13,23 @@
   <body>
 
 <div class="container">
-  <h1><%= title %></h1>
+  <h1 class="center-align"><%= title %></h1>
 
-  <button type="button" onclick="signInWithGoogle();">Sign In With Google</button>
+  <a href="/cartoons"><button type="button" name="button">Cartoons</button></a>
+  <a href="/anime"><button type="button" name="button">Anime</button></a>
+  <a href="/movies"><button type="button" name="button">Movies</button></a>
+  <a href="/favs"><button type="button" name="button">Favs</button></a>
+  <a href="/recents"><button type="button" name="button">Recents</button></a>
+  <!-- <button type="button" onclick="signInWithGoogle();">Sign In With Google</button> -->
+  <button type="button" onclick="signOut();">Sign Out</button>
+
+  <h2 class="center-align">Recents</h2>
+
+  <div id="recentsContainer">
+    <ul class="collection width-header" id="listShows">
+
+    </ul>
+  </div>
 </div>
 
 
@@ -34,5 +48,5 @@
   };
   firebase.initializeApp(config);
 </script>
-<script src="client-script-home.js" charset="utf-8"></script>
+<script src="client-script.js" charset="utf-8"></script>
 </html>

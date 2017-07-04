@@ -1,14 +1,17 @@
 <% include partials/header %>
 
-<h1><%= title %></h1>
-<ul>
+<div class="container">
+  <h1><%= title %></h1>
+  <ul class="collection width-header">
 
-  <% cartoonsEpList.forEach(function(show) { %>
-    <li>
-      <a href="/Ep<%= show.EpName %>"><%= show.title %></a>
-    </li>
-  <% }) %>
+    <% cartoonsEpList.forEach(function(show) { %>
+      <li id="ep" class='collection-item'>
+        <a href="/Ep<%= show.EpName %>" title="<%= show.EpName %>"><%= show.title %></a>
+      </li>
+    <% }) %>
 
-</ul>
+  </ul>
+</div>
+
 
 <%include partials/footer %>
