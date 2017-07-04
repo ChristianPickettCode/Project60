@@ -141,11 +141,11 @@ app.get('/:show', function(req, res) {
     var title = findAndReplace(message, '-', ' ');
     title = toTitleCase(title);
 
-    res.render('episode', {
+    res.render('Episode', {
       title : title,
       cartoonsEpList: cartoonShowEpArr.cartoonShowlist
     });
-  
+
   })
 
 })
