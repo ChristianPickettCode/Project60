@@ -145,7 +145,7 @@ app.get('/:show', function(req, res) {
       title : title,
       cartoonsEpList: cartoonShowEpArr.cartoonShowlist
     });
-
+ 
   })
 
 })
