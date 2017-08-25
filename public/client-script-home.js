@@ -17,6 +17,14 @@ function signInWithGoogle() {
 
 };
 
+function signInAnonymous() {
+  // Sign in Anonymously
+  firebase.auth().signInAnonymously()
+    .catch(function(error) {
+      console.log('Google sign in error', error);
+    });
+}
+
 // Listen to auth state changes
 firebase.auth().onAuthStateChanged(function(user) {
 
