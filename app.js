@@ -25,11 +25,11 @@ const scraperSeriesFindVideo = require("./seriesFindVideo");
 const url = "https://www.watchcartoononline.io/";
 const url2 = "https://www.watchcartoononline.io/anime/";
 const url3 = "https://www.watchcartoononline.io/inc/animeuploads/embed.php?file=";
-const url4 = "http://mywatchseries.to/letters/";
-const url5 = "http://mywatchseries.to/serie/";
-const url6 = "http://mywatchseries.to/";
-const url7 = "http://mywatchseries.to/episode/";
-const url8 = "http://mywatchseries.to/cale.html?r=";
+const url4 = "http://ewatchseries.to/letters/";
+const url5 = "http://ewatchseries.to/serie/";
+const url6 = "http://ewatchseries.to/";
+const url7 = "http://ewatchseries.to/episode/";
+const url8 = "http://ewatchseries.to/cale.html?r=";
 
 
 const app = express();
